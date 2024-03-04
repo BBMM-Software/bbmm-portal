@@ -5,6 +5,7 @@ import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import FeaturesBg from "@/public/images/features-bg.png";
 import FeaturesElement from "@/public/images/features-element.png";
+import Carousel from "./utils/carousel";
 
 const TABS_TEXTS = [
 	"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
@@ -51,10 +52,10 @@ export default function Features() {
 									e.preventDefault();
 									handleChangeTab(1);
 								}}
-								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 text-sm font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
+								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
 									tab === 1
 										? "bg-white shadow-md border border-gray-200 hover:shadow-lg px-3.5 py-1 text-base tracking-tighter"
-										: "bg-gray-200 border-transparent"
+										: "bg-gray-200 border-transparent text-sm"
 								}`}
 							>
 								Freelancing Services
@@ -80,10 +81,10 @@ export default function Features() {
 									e.preventDefault();
 									handleChangeTab(2);
 								}}
-								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 text-sm font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
+								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
 									tab === 2
 										? "bg-white shadow-md border border-gray-200 hover:shadow-lg px-3.5 py-1 text-base"
-										: "bg-gray-200 border-transparent"
+										: "bg-gray-200 border-transparent text-sm"
 								}`}
 							>
 								CompanyCompass
@@ -93,6 +94,28 @@ export default function Features() {
 
 					{/* Section content */}
 					<div className="md:grid md:grid-cols-12 md:gap-6">
+						<div className="col-span-1 flex justify-center pb-5">
+							<button
+								type="button"
+								className="pe-5 mb-5 cursor-pointer"
+							>
+								<svg
+									className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+									aria-hidden="true"
+									xmlns="http://www.w3.org/2000/svg"
+									fill="none"
+									viewBox="0 0 6 10"
+								>
+									<path
+										stroke="currentColor"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
+										d="M5 1 1 5l4 4"
+									/>
+								</svg>
+							</button>
+						</div>
 						{/* Content */}
 						<div
 							className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-4 lg:col-span-4 md:mt-6"
@@ -107,10 +130,10 @@ export default function Features() {
 						</div>
 
 						{/* Tabs items */}
-						<div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-8 lg:col-span-8 mb-8 md:mb-0 md:order-1 flex items-center justify-center">
+						<div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-6 lg:col-span-6 mb-8 md:mb-0 flex items-center justify-center">
 							<div className="transition-all">
 								<div
-									className="relative flex flex-col text-center lg:text-right"
+									className="relative flex flex-col text-center lg:text-right ak"
 									data-aos="zoom-y-out"
 									ref={tabs}
 								>
@@ -165,6 +188,31 @@ export default function Features() {
 									</Transition>
 								</div>
 							</div>
+						</div>
+						<div className="col-span-1 flex justify-center pb-5">
+							<button
+								type="button"
+								className="px-4 mb-5 cursor-pointer"
+							>
+								<span className="inline-flex items-center justify-center w-10 h-10 rounded-full">
+									<svg
+										className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+										aria-hidden="true"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 6 10"
+									>
+										<path
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											d="m1 9 4-4-4-4"
+										/>
+									</svg>
+									<span className="sr-only">Next</span>
+								</span>
+							</button>
 						</div>
 					</div>
 				</div>
