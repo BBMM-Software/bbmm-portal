@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'BBMM',
+  title: 'BBMM Software',
   description: 'Page description',
 }
 
