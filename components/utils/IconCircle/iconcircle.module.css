@@ -1,0 +1,14 @@
+.iconCircle{
+    background-color: theme('colors.purple.500');
+    margin: 10px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconCircle svg{
+    scale: 2;
+    color: white;
+}
