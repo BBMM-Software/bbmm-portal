@@ -4,17 +4,44 @@ import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import FeaturesBg from "@/public/images/features-bg.png";
-import FeaturesElement from "@/public/images/features-element.png";
-import Carousel from "./utils/carousel";
 
 const TABS_TEXTS = [
 	"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper porttitor nulla, et porttitor neque. Proin ac vehicula eros. Vivamus odio risus.",
 ];
 
+interface Project {
+	title: string; // Project Name
+	description: string; // Project Description
+	gifs: Array<string>; // gifs
+	dev: {
+		time: string; // dev time
+		request: string; // what did the client requested
+		provided?: string; // what the client provided
+		delivered: string; // what we delivered
+		techStack: Array<string>; // technologies used
+	};
+}
+
+const PROJECTS: Project[] = [
+	{
+		title: "InTouch",
+		description: "Basic application description",
+		gifs: [" ", " "],
+		dev: {
+			time: "2 days",
+			request: "An application that can do X Stuff",
+			provided: "Figma design and also some stuff",
+			delivered: "Delivered a powerful app",
+			techStack: ["tech1", "tech2"],
+		},
+	},
+];
+
 export default function Features() {
 	const [tab, setTab] = useState<number>(1);
 	const [tabContent, setTabContent] = useState(TABS_TEXTS[0]);
+	const [project, setProject] = useState<Project>(PROJECTS[0]);
 
 	const tabs = useRef<HTMLDivElement>(null);
 
@@ -94,7 +121,7 @@ export default function Features() {
 
 					{/* Section content */}
 					<div className="md:grid md:grid-cols-12 md:gap-6">
-						<div className="col-span-1 flex justify-center pb-5">
+						<div className="xs:hidden sm:flex col-span-1 justify-center pb-5">
 							<button
 								type="button"
 								className="pe-5 mb-5 cursor-pointer"
@@ -117,26 +144,14 @@ export default function Features() {
 							</button>
 						</div>
 						{/* Content */}
-						<div
-							className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-4 lg:col-span-4 md:mt-6"
-							data-aos="fade-right"
-						>
-							<div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
-								<h3 className="h3 mb-3">BBMM Products</h3>
-								<p className="text-xl text-gray-600">
-									{tabContent}
-								</p>
-							</div>
-						</div>
 
 						{/* Tabs items */}
-						<div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-6 lg:col-span-6 mb-8 md:mb-0 flex items-center justify-center">
-							<div className="transition-all">
-								<div
-									className="relative flex flex-col text-center lg:text-right ak"
-									data-aos="zoom-y-out"
-									ref={tabs}
-								>
+						<div
+							className="transition-all col-span-10"
+							style={{ height: "500px" }}
+						>
+							<div className="relative">
+								<div ref={tabs}>
 									{/* Item 1 */}
 									<Transition
 										show={tab === 1}
@@ -151,14 +166,28 @@ export default function Features() {
 										beforeEnter={() => heightFix()}
 										unmount={false}
 									>
-										<div className="relative inline-flex flex-col">
-											<Image
-												className="md:max-w-none mx-auto rounded"
-												src={FeaturesBg}
-												width={500}
-												height="462"
-												alt="Features bg"
-											/>
+										<div className="absolute grid grid-cols-12 mt-12">
+											<div
+												className="xs:col-span-12 sm:col-span-5 flex sm:mt-16 xs:text-center"
+												data-aos="fade-right"
+											>
+												<div className="mb-8 w-full">
+													<h3 className="h3 mb-3">
+														{project.title}
+													</h3>
+													<p className="text-xl text-gray-600">
+														{project.description}
+													</p>
+												</div>
+											</div>
+											<div className="xs:col-span-12 sm:col-span-7 flex justify-center items-center">
+												<Image
+													src={FeaturesBg}
+													width={500}
+													height="462"
+													alt="Features bg"
+												/>
+											</div>
 										</div>
 									</Transition>
 
@@ -176,20 +205,35 @@ export default function Features() {
 										beforeEnter={() => heightFix()}
 										unmount={false}
 									>
-										<div className="relative inline-flex flex-col">
-											<Image
-												className="md:max-w-none mx-auto rounded"
-												src={FeaturesBg}
-												width={500}
-												height="462"
-												alt="Features bg"
-											/>
+										<div className="absolute grid grid-cols-12 mt-12">
+											<div
+												className="xs:col-span-12 sm:col-span-5 flex sm:mt-16 xs:text-center"
+												data-aos="fade-right"
+											>
+												<div className="mb-8 w-full">
+													<h3 className="h3 mb-3">
+														CompanyCompass
+													</h3>
+													<p className="text-xl text-gray-600">
+														Some Description for
+														this one
+													</p>
+												</div>
+											</div>
+											<div className="xs:col-span-12 sm:col-span-7 flex justify-center items-center">
+												<Image
+													src={FeaturesBg}
+													width={500}
+													height="462"
+													alt="Features bg"
+												/>
+											</div>
 										</div>
 									</Transition>
 								</div>
 							</div>
 						</div>
-						<div className="col-span-1 flex justify-center pb-5">
+						<div className="xs:hidden sm:flex col-span-1 items-center justify-center pb-5">
 							<button
 								type="button"
 								className="px-4 mb-5 cursor-pointer"
