@@ -8,11 +8,15 @@ export default function Newsletter() {
   const [emailValue, setEmailValue] = useState<string>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
   function checkAvailability(){
-    if(emailValue){
+    if(emailValue && isEmailValid(emailValue)){
       console.log(emailValue)
       window.open("https://cal.com/bbmmsoftware", "_blank"); // we should create a constants file and move the link there
+    }else{
+      setShowAlert(true);
     }
-    setShowAlert(true);
+  }
+  function isEmailValid(email : string){
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
   }
 
   return (
@@ -57,7 +61,7 @@ export default function Newsletter() {
                 <p className="text-gray-300 text-lg mb-6">Leave your email here and we'll get in touch with you.</p>
 
                 {/* CTA form */}
-                <form className="w-full lg">
+                <div className="w-full lg">
                   <div className="flex flex-col sm:flex-row justify-center max-w-xl mx-auto sm:max-w-md lg:mx-0">
                     <input value={emailValue} 
                     onChange={
@@ -65,20 +69,15 @@ export default function Newsletter() {
                     }type="email" id="emailInput" className="form-input w-full h-fit appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500" placeholder="Your email…" aria-label="Your email…" />
                     <a className="btn text-white w-full bg-purple-500 hover:bg-purple-200 shadow" onClick={checkAvailability}>Check availability</a>
                   </div>
-                  {/* Success message */}
-                  {/* <p className="text-sm text-gray-400 mt-3">Thanks for subscribing!</p> */}
                   <p className="text-sm text-gray-400 mt-3">You'll receive a response as soon as possible</p>
-                </form>
+                </div>
               </div>
-
             </div>
-
-          
 
         </div>
       </div>
      </div>
-    <InfoAlert show={showAlert} setParentShow={setShowAlert}/>
+    <InfoAlert show={showAlert} setParentShow={setShowAlert} message={"The email you entered is invalid!"}/>
       
     </section>
   )
