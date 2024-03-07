@@ -3,11 +3,11 @@ import { CiCircleInfo } from "react-icons/ci";
 
 type InfoAlertProps = {
     show: boolean;
-    setParentShow: (show: boolean) => void;
+    onClose: () => void;
     message: string;
 };
 
-export default function InfoAlert({ show, setParentShow, message }: InfoAlertProps) {
+export default function InfoAlert({ show, onClose, message }: InfoAlertProps) {
     const [opacity, setOpacity] = useState('opacity-100');
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function InfoAlert({ show, setParentShow, message }: InfoAlertPro
         let hideTimer: ReturnType<typeof setTimeout>;
         if (opacity === 'opacity-0' && show) {
             hideTimer = setTimeout(() => {
-                setParentShow(false);
+                onClose();
             }, 300);
         }
 

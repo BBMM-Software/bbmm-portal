@@ -7,7 +7,7 @@ export default function Newsletter() {
 
   const [emailValue, setEmailValue] = useState<string>();
   const [showAlert, setShowAlert] = useState<boolean>(false);
-  function checkAvailability(){
+  const checkAvailability = () => {
     if(emailValue && isEmailValid(emailValue)){
       console.log(emailValue)
       window.open("https://cal.com/bbmmsoftware", "_blank"); // we should create a constants file and move the link there
@@ -15,7 +15,7 @@ export default function Newsletter() {
       setShowAlert(true);
     }
   }
-  function isEmailValid(email : string){
+  const isEmailValid = (email : string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
   }
 
@@ -77,7 +77,7 @@ export default function Newsletter() {
         </div>
       </div>
      </div>
-    <InfoAlert show={showAlert} setParentShow={setShowAlert} message={"The email you entered is invalid!"}/>
+    <InfoAlert show={showAlert} onClose={() => setShowAlert(false)} message={"The email you entered is invalid!"}/>
       
     </section>
   )
