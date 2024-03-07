@@ -41,7 +41,7 @@ function Model(props: ModelProps) {
                     <mesh material={materials['matte.001']} geometry={(nodes['Cube008_1'] as Mesh).geometry}/>
                     <mesh geometry={(nodes['Cube008_2'] as Mesh).geometry}>
                         <Html rotation-x={-Math.PI / 2} position={[0, 0.04, 0]} transform occlude>
-                            <div onPointerDown={(e) => e.stopPropagation()}>Under construction...</div>
+
                         </Html>
                     </mesh>
                 </group>
