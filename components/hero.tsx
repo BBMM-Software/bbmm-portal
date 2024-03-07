@@ -21,13 +21,13 @@ export default function Hero() {
                 </svg>
             </div>
 
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="max-w-6xl mx-auto">
 
                 {/* Hero content */}
                 <div className="pt-32 md:pt-40">
 
                     {/* Section header */}
-                    <div className="text-center ">
+                    <div className="text-center px-4 sm:px-6">
                         <h1 className="text-5xl md:text-6xl font-extrabold leading-tighter tracking-tighter"
                             data-aos="zoom-y-out">BBMM <span
                             className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-teal-400">Software</span>
