@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import FeaturesBg from "@/public/images/features-bg.png";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const TABS_TEXTS = [
 	"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
@@ -26,6 +27,18 @@ interface Project {
 const PROJECTS: Project[] = [
 	{
 		title: "InTouch",
+		description: "Basic application description",
+		gifs: [" ", " "],
+		dev: {
+			time: "2 days",
+			request: "An application that can do X Stuff",
+			provided: "Figma design and also some stuff",
+			delivered: "Delivered a powerful app",
+			techStack: ["tech1", "tech2"],
+		},
+	},
+	{
+		title: "AXYOS",
 		description: "Basic application description",
 		gifs: [" ", " "],
 		dev: {
@@ -166,29 +179,52 @@ export default function Features() {
 										beforeEnter={() => heightFix()}
 										unmount={false}
 									>
-										<div className="absolute grid grid-cols-12 mt-12">
-											<div
-												className="xs:col-span-12 sm:col-span-5 flex sm:mt-16 xs:text-center"
-												data-aos="fade-right"
-											>
-												<div className="mb-8 w-full">
-													<h3 className="h3 mb-3">
-														{project.title}
-													</h3>
-													<p className="text-xl text-gray-600">
-														{project.description}
-													</p>
-												</div>
-											</div>
-											<div className="xs:col-span-12 sm:col-span-7 flex justify-center items-center">
-												<Image
-													src={FeaturesBg}
-													width={500}
-													height="462"
-													alt="Features bg"
-												/>
-											</div>
-										</div>
+										<Swiper
+											spaceBetween={50}
+											slidesPerView={1}
+											onSlideChange={() =>
+												console.log("slide change")
+											}
+											onSwiper={(swiper) =>
+												console.log(swiper)
+											}
+											className="m-0"
+										>
+											{PROJECTS.map((project) => (
+												<SwiperSlide
+													className="relative"
+													style={{ height: "600px" }}
+												>
+													<div className="absolute grid grid-cols-12 mt-8">
+														<div
+															className="xs:col-span-12 sm:col-span-5 flex sm:mt-16 xs:text-center"
+															data-aos="fade-right"
+														>
+															<div className="mb-8 w-full">
+																<h3 className="h3 mb-3">
+																	{
+																		project.title
+																	}
+																</h3>
+																<p className="text-xl text-gray-600">
+																	{
+																		project.description
+																	}
+																</p>
+															</div>
+														</div>
+														<div className="xs:col-span-12 sm:col-span-7 flex justify-center items-center">
+															<Image
+																src={FeaturesBg}
+																width={500}
+																height="462"
+																alt="Features bg"
+															/>
+														</div>
+													</div>
+												</SwiperSlide>
+											))}
+										</Swiper>
 									</Transition>
 
 									{/* Item 2 */}
