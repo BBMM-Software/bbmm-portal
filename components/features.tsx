@@ -183,19 +183,28 @@ export default function Features() {
 																<div className="flex justify-center items-center">
 																	<div
 																		style={{ width: "400px", height: "400px" }}
-																		className="bg-white border border-gray-200 rounded-lg shadow relative"
+																		className="bg-white border border-gray-200 rounded-lg shadow relative text-base font-semibold"
 																	>
-																		<div className="my-4 w-full flex flex-column">
-																			<FaClipboardList /> :{project.dev.request}
+																		<div className="absolute top-1 right-1 text-xs">Duration: {project.dev.time}</div>
+																		<div className="p-5">
+																			<div className="my-4 text-sm">Client Requirements:</div>
+																			<div className="my-4">
+																				<span className="ms-2">
+																					{project.dev.request}sdfs df sdfsdfsdfsdfsdf sdfsdfsdf sfsdfsdfs sfdsfsdfs dfsdf{" "}
+																				</span>
+																			</div>
+																			<hr />
+																			<div className="text-sm my-4">Provided Data:</div>
+																			<div className="my-4">
+																				<span className="ms-2">{project.dev.provided}</span>
+																			</div>
+																			<hr />
+																			<div className="my-4 text-sm">What we delivered:</div>
+																			<div className="my-4">
+																				<span className="ms-2">{project.dev.delivered}</span>
+																			</div>
 																		</div>
-																		<div className="my-4 w-full flex flex-column">
-																			<FaUpload />: {project.dev.provided}
-																		</div>
-																		<div className="my-4 w-full flex flex-column">
-																			<FaCheck />: {project.dev.delivered}
-																		</div>
-
-																		<div className="flex flex-column justify-center w-full absolute font-semibold bottom-0 text-xs mb-2">
+																		<div className="flex flex-column justify-center w-full absolute font-semibold bottom-0 text-sm mb-2">
 																			{project.dev.techStack.map((tech, index) => (
 																				<>
 																					<span className="mx-1">{tech}</span>
