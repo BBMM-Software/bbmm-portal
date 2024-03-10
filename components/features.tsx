@@ -19,9 +19,9 @@ interface Project {
 	gifs: Array<string>; // gifs
 	dev: {
 		time: string; // dev time
-		request: string; // what did the client requested
-		provided?: string; // what the client provided
-		delivered: string; // what we delivered
+		request: Array<string>; // what did the client requested
+		provided?: Array<string>; // what the client provided
+		delivered: Array<string>; // what we delivered
 		techStack: Array<string>; // technologies used
 	};
 }
@@ -33,22 +33,22 @@ const PROJECTS: Project[] = [
 		gifs: [" ", " "],
 		dev: {
 			time: "2 days",
-			request: "An application that can do X Stuff",
-			provided: "Figma design and also some stuff",
-			delivered: "Delivered a powerful app",
+			request: ["An application that can do X Stuff"],
+			provided: ["Figma design and also some stuff"],
+			delivered: ["Delivered a powerful app"],
 			techStack: ["tech1", "tech2"],
 		},
 	},
 	{
-		title: "AXYOS",
-		description: "An application that can do X Stuff, and it's very powerful, you really can't match that type of power",
+		title: "Abys Product Showcase",
+		description: "The website showcases an interactive 3D model of Abys's outdoor advertising product: a bike.",
 		gifs: [" ", " "],
 		dev: {
-			time: "2 days",
-			request: "An application that can do X Stuff, and it's very powerful, you really can't match that type of power",
-			provided: "Figma design and also some stuff",
-			delivered: "Delivered a powerful app",
-			techStack: ["tech1", "tech2"],
+			time: "1 week",
+			request: ["3D model of a bike with displays on each side", "the model should be spinning by default, and interactive", "background with  moving vertexes animation"],
+			provided: ["Rough Figma design"],
+			delivered: ["Source code, 3D model, and assistance in hosting"],
+			techStack: ["Golang", "p5.js", "Autodesk Fusion"],
 		},
 	},
 ];
@@ -188,23 +188,37 @@ export default function Features() {
 																		<div className="absolute top-1 right-1 text-xs">Duration: {project.dev.time}</div>
 																		<div className="p-5">
 																			<div className="my-4 text-sm">Client Requirements:</div>
-																			<div className="my-4">
-																				<span className="ms-2">
-																					{project.dev.request}sdfs df sdfsdfsdfsdfsdf sdfsdfsdf sfsdfsdfs sfdsfsdfs dfsdf{" "}
-																				</span>
+																			<div className="my-2">
+																				<ul className="list-disc ms-2 text-xs">
+																					{project.dev.request.map((req) => (
+																						<li>{req}</li>
+																					))}
+																				</ul>
 																			</div>
 																			<hr />
-																			<div className="text-sm my-4">Provided Data:</div>
-																			<div className="my-4">
-																				<span className="ms-2">{project.dev.provided}</span>
-																			</div>
+																			{project.dev.provided && (
+																				<>
+																					<div className="text-sm mt-4">Provided Data:</div>
+																					<div className="my-2">
+																						<ul className="list-disc ms-2 text-xs">
+																							{project.dev.provided.map((prov) => (
+																								<li>{prov}</li>
+																							))}
+																						</ul>
+																					</div>
+																				</>
+																			)}
 																			<hr />
 																			<div className="my-4 text-sm">What we delivered:</div>
 																			<div className="my-4">
-																				<span className="ms-2">{project.dev.delivered}</span>
+																				<ul className="list-disc ms-2 text-xs">
+																					{project.dev.delivered.map((deliv) => (
+																						<li>{deliv}</li>
+																					))}
+																				</ul>
 																			</div>
 																		</div>
-																		<div className="flex flex-column justify-center w-full absolute font-semibold bottom-0 text-sm mb-2">
+																		<div className="flex flex-column justify-center w-full absolute font-semibold bottom-0 text-xs mb-2">
 																			{project.dev.techStack.map((tech, index) => (
 																				<>
 																					<span className="mx-1">{tech}</span>
