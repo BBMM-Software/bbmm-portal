@@ -1,12 +1,12 @@
 "use client";
 
-import Testimonials from "@/public/images/testimonial.jpg";
 import { Transition } from "@headlessui/react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { FaClipboardList, FaUpload, FaCheck } from "react-icons/fa";
+import { MdTimer } from "react-icons/md";
 import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Testimonial from "@/public/images/testimonial.jpg";
 
 const TABS_TEXTS = [
 	"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
@@ -16,7 +16,7 @@ const TABS_TEXTS = [
 interface Project {
 	title: string; // Project Name
 	description: string; // Project Description
-	gifs: Array<string>; // gifs
+	gifs: Array<StaticImageData>; // gifs
 	dev: {
 		time: string; // dev time
 		request: Array<string>; // what did the client requested
@@ -30,7 +30,7 @@ const PROJECTS: Project[] = [
 	{
 		title: "InTouch",
 		description: "Basic application description",
-		gifs: [" ", " "],
+		gifs: [Testimonial, Testimonial],
 		dev: {
 			time: "2 days",
 			request: ["An application that can do X Stuff"],
@@ -42,7 +42,7 @@ const PROJECTS: Project[] = [
 	{
 		title: "Abys Product Showcase",
 		description: "The website showcases an interactive 3D model of Abys's outdoor advertising product: a bike.",
-		gifs: [" ", " "],
+		gifs: [Testimonial, Testimonial],
 		dev: {
 			time: "1 week",
 			request: ["3D model of a bike with displays on each side", "the model should be spinning by default, and interactive", "background with  moving vertexes animation"],
@@ -55,8 +55,6 @@ const PROJECTS: Project[] = [
 
 export default function Features() {
 	const [tab, setTab] = useState<number>(1);
-	const [tabContent, setTabContent] = useState(TABS_TEXTS[0]);
-	const [project, setProject] = useState<Project>(PROJECTS[0]);
 
 	const tabs = useRef<HTMLDivElement>(null);
 
@@ -64,14 +62,13 @@ export default function Features() {
 		if (tabs.current && tabs.current.parentElement) tabs.current.parentElement.style.height = `${tabs.current.clientHeight}px`;
 	};
 
-	const handleChangeTab = (index: number) => {
-		setTab(index);
-		setTabContent(TABS_TEXTS[index - 1]);
-	};
-
 	useEffect(() => {
 		heightFix();
 	}, []);
+
+	const isMobile = () => {
+		return window.innerWidth < 640;
+	};
 
 	return (
 		<section className="relative">
@@ -88,7 +85,7 @@ export default function Features() {
 							<a
 								onClick={(e) => {
 									e.preventDefault();
-									handleChangeTab(1);
+									setTab(1);
 								}}
 								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
 									tab === 1
@@ -104,7 +101,7 @@ export default function Features() {
 							<a
 								onClick={(e) => {
 									e.preventDefault();
-									handleChangeTab(2);
+									setTab(2);
 								}}
 								className={`cursor-pointer bg-gray-200 hover:bg-white hover:border hover:border-gray-200 text-gray-800 font-semibold rounded-full mx-2 px-2.5 py-0.5 rounded inline-flex items-center justify-center ${
 									tab === 2 ? "bg-white shadow-md border border-gray-200 hover:shadow-lg px-3.5 py-1 text-base" : "bg-gray-200 border-transparent text-sm"
@@ -117,7 +114,7 @@ export default function Features() {
 
 					{/* Section content */}
 					{/* Tabs items */}
-					<div className="transition-all" style={{ height: "500px" }}>
+					<div className="transition-all" style={{ height: "600px" }}>
 						<div className="relative">
 							<div ref={tabs}>
 								{/* Item 1 */}
@@ -136,8 +133,8 @@ export default function Features() {
 								>
 									<Swiper
 										modules={[Navigation, Pagination]}
-										navigation={true}
-										pagination={true}
+										navigation={isMobile() ? false : true}
+										pagination={isMobile() ? false : true}
 										color="purple-500"
 										spaceBetween={50}
 										slidesPerView={1}
@@ -146,7 +143,7 @@ export default function Features() {
 										className="m-0 swiper"
 									>
 										{PROJECTS.map((project, index) => (
-											<SwiperSlide key={index} style={{ height: "500px" }}>
+											<SwiperSlide key={index} style={{ minHeight: "500px" }}>
 												<div className="w-full grid grid-cols-12 mt-8">
 													<div className="xs:col-span-12 sm:col-span-4 sm:col-start-2 flex sm:mt-16 xs:text-center sm:text-start" data-aos="fade-right">
 														<div className="mb-8 w-full">
@@ -161,7 +158,6 @@ export default function Features() {
 															effect="flip"
 															allowTouchMove={false}
 															onClick={(swiper) => {
-																console.log("Sunt aici bos", swiper.activeIndex);
 																if (swiper.isEnd) {
 																	swiper.slideTo(0, 500);
 																} else {
@@ -169,29 +165,29 @@ export default function Features() {
 																}
 															}}
 														>
-															<SwiperSlide className="shadow-none">
-																<div className="flex justify-center items-center">
-																	<Image src={Testimonials} width={400} alt="Features bg" />
-																</div>
-															</SwiperSlide>
-															<SwiperSlide>
-																<div className="flex justify-center items-center">
-																	<Image src={Testimonials} width={400} alt="Features bg" />
-																</div>
-															</SwiperSlide>
+															{project.gifs.map((gif) => (
+																<SwiperSlide className="shadow-none">
+																	<div className="flex justify-center items-center">
+																		<Image src={gif} width={400} alt="Features bg" />
+																	</div>
+																</SwiperSlide>
+															))}
+
 															<SwiperSlide>
 																<div className="flex justify-center items-center">
 																	<div
 																		style={{ width: "400px", height: "400px" }}
 																		className="bg-white border border-gray-200 rounded-lg shadow relative text-base font-semibold"
 																	>
-																		<div className="absolute top-1 right-1 text-xs">Duration: {project.dev.time}</div>
+																		<div className="absolute top-1 right-1 text-xs flex items-center">
+																			<MdTimer fontSize={18} />: {project.dev.time}
+																		</div>
 																		<div className="p-5">
 																			<div className="my-4 text-sm">Client Requirements:</div>
 																			<div className="my-2">
 																				<ul className="list-disc ms-2 text-xs">
-																					{project.dev.request.map((req) => (
-																						<li>{req}</li>
+																					{project.dev.request.map((request) => (
+																						<li>{request}</li>
 																					))}
 																				</ul>
 																			</div>
@@ -201,8 +197,8 @@ export default function Features() {
 																					<div className="text-sm mt-4">Provided Data:</div>
 																					<div className="my-2">
 																						<ul className="list-disc ms-2 text-xs">
-																							{project.dev.provided.map((prov) => (
-																								<li>{prov}</li>
+																							{project.dev.provided.map((provided) => (
+																								<li>{provided}</li>
 																							))}
 																						</ul>
 																					</div>
@@ -212,8 +208,8 @@ export default function Features() {
 																			<div className="my-4 text-sm">What we delivered:</div>
 																			<div className="my-4">
 																				<ul className="list-disc ms-2 text-xs">
-																					{project.dev.delivered.map((deliv) => (
-																						<li>{deliv}</li>
+																					{project.dev.delivered.map((delivered) => (
+																						<li>{delivered}</li>
 																					))}
 																				</ul>
 																			</div>
@@ -271,7 +267,7 @@ export default function Features() {
 											</div>
 										</div>
 										<div className="xs:col-span-12 sm:col-span-7 flex justify-center items-center">
-											<Image src={Testimonials} width={400} alt="Features bg" />
+											<Image src={Testimonial} width={400} alt="Features bg" />
 										</div>
 									</div>
 								</Transition>
