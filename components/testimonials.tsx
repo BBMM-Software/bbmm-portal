@@ -56,7 +56,7 @@ export default function Testimonials() {
                     </div>
 
                     {/* Items */}
-                    <div className="max-w md:max-w-4xl mx-auto flex flex-col md:flex-row justify-center content-cneter">
+                    <div className="max-w md:max-w-4xl mx-auto flex flex-col md:flex-row justify-center">
                         {/* Upwork Logo */}
                         <div className="flex items-center justify-center py-2 col-span-2 md:col-auto mx-6">
                             <svg
