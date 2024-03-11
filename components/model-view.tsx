@@ -61,6 +61,7 @@ function Model(props: ModelProps) {
 export default function ModelView() {
     const [isOpen, setIsOpen] = useState(false);
     const hasToggled = useRef(false);
+    const [isMobileAgent, setIsMobileAgent] = useState(false);
 
     const toggleLid = () => {
         setIsOpen(!isOpen);
@@ -94,6 +95,9 @@ export default function ModelView() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, [isOpen]); // Depend on isOpen to make sure the toggle function behaves correctly
 
+    useEffect(() => {
+        setIsMobileAgent(Utilities.isMobileAgent())
+    }, []);
 
     return (
         <div style={{height: '60vh', width: '100%'}}>
@@ -106,7 +110,7 @@ export default function ModelView() {
                     <Environment preset="city"/>
                 </Suspense>
                 <ContactShadows position={[0, -4, 0]} scale={20} blur={2} far={4}/>
-                {!Utilities.isMobileAgent() && <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
+                {!isMobileAgent && <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
                                maxPolarAngle={Math.PI / 2.2}/>}
             </Canvas>
         </div>
