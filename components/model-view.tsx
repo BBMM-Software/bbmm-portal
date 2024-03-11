@@ -65,12 +65,12 @@ export default function ModelView() {
         setIsOpen(!isOpen);
     }
 
-    const handleModelLoad = () =>  {
+    const handleModelLoad = () => {
         useEffect(() => {
-                const timer = setTimeout(() => {
-                    if (!isOpen) toggleLid();
-                }, 500);
-                return () => clearTimeout(timer);
+            const timer = setTimeout(() => {
+                if (!isOpen) toggleLid();
+            }, 500);
+            return () => clearTimeout(timer);
         }, []);
     }
 
@@ -78,7 +78,6 @@ export default function ModelView() {
         const handleScroll = () => {
             const threshold = 100;
             const currentPosition = window.scrollY;
-            console.log(currentPosition)
 
             if (currentPosition > threshold && isOpen && !hasToggled.current) {
                 toggleLid();
