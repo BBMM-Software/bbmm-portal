@@ -106,8 +106,8 @@ export default function ModelView() {
                     <Environment preset="city"/>
                 </Suspense>
                 <ContactShadows position={[0, -4, 0]} scale={20} blur={2} far={4}/>
-                <OrbitControls enableRotate={!Utilities.isMobileAgent()} enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
-                               maxPolarAngle={Math.PI / 2.2}/>
+                {!Utilities.isMobileAgent() && <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
+                               maxPolarAngle={Math.PI / 2.2}/>}
             </Canvas>
         </div>
     )
