@@ -4,6 +4,7 @@ import {Group, Mesh} from 'three'
 import React, {Suspense, useEffect, useRef, useState} from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
 import {ContactShadows, Environment, Html, OrbitControls, useGLTF} from '@react-three/drei'
+import Utilities from './utils/utilities';
 
 interface ModelProps {
     isOpen: boolean
@@ -105,7 +106,7 @@ export default function ModelView() {
                     <Environment preset="city"/>
                 </Suspense>
                 <ContactShadows position={[0, -4, 0]} scale={20} blur={2} far={4}/>
-                <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
+                <OrbitControls enableRotate={!Utilities.isMobileAgent()} enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 2.2}
                                maxPolarAngle={Math.PI / 2.2}/>
             </Canvas>
         </div>
