@@ -8,11 +8,6 @@ import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "@/public/images/testimonial.jpg";
 
-const TABS_TEXTS = [
-	"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper porttitor nulla, et porttitor neque. Proin ac vehicula eros. Vivamus odio risus.",
-];
-
 interface Project {
 	title: string; // Project Name
 	description: string; // Project Description
@@ -29,14 +24,14 @@ interface Project {
 const PROJECTS: Project[] = [
 	{
 		title: "InTouch",
-		description: "Basic application description",
+		description: "The application allows its users to share their social media accounts, at all types of social events.",
 		gifs: [Testimonial, Testimonial],
 		dev: {
-			time: "2 days",
-			request: ["An application that can do X Stuff"],
-			provided: ["Figma design and also some stuff"],
-			delivered: ["Delivered a powerful app"],
-			techStack: ["tech1", "tech2"],
+			time: "2 months",
+			request: ["Social media app to share accounts across all platforms"],
+			provided: ["Figma design"],
+			delivered: ["Source code", "Modern UI, made specifically for mobile, with custom styles for iOS and Android", "Improved app stability with Kubernetes"],
+			techStack: ["Ionic-React", "Spring Boot", "PostgreSQL", "Kubernetes"],
 		},
 	},
 	{
