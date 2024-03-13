@@ -1,16 +1,19 @@
-import './css/style.css'
+import "./css/style.css";
 
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
 
-import Header from '@/components/ui/header'
+import Header from "@/components/ui/header";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap'
-})
+    subsets: ["latin"],
+    variable: "--font-inter",
+    display: "swap",
+});
 
 const babyBlocks = localFont({
   src: '../public/fonts/baby_blocks.ttf',
@@ -18,9 +21,9 @@ const babyBlocks = localFont({
 });
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode;
 }) {
   return (
     <html lang="en">
