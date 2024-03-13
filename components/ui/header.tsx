@@ -49,15 +49,15 @@ export default function Header() {
                              data-aos-delay="300">
                             <div className="my-auto">
                                 <a className={`font-medium px-5 py-3 flex items-center  w-full sm:w-auto ${!top ? 'text-white' : 'text-black'}`}
-                                   href="#0">Products</a>
+                                   href="#productsSection">Products</a>
                             </div>
                             <div className="my-auto">
                                 <a className={`font-medium px-5 py-3 flex items-center  w-full sm:w-auto ${!top ? 'text-white' : 'text-black'}`}
-                                   href="#0">Contact</a>
+                                   href="#contactSection">Contact</a>
                             </div>
                             <div className="my-auto">
                                 <a className={`btn  bg-black hover:bg-gray-800 w-full sm:w-auto sm:ml-4 ${!top ? 'text-gray-700 bg-white hover:bg-gray-200' : 'text-white'}`}
-                                   href="#0">About Us</a>
+                                   href="/about-us">About Us</a>
                             </div>
                         </div>
                     </nav>
@@ -86,14 +86,14 @@ export default function Header() {
             >
                 <ul className="px-5 py-2">
                     <li>
-                        <Link href="#"
+                        <Link href="#productsSection"
                               className={`flex font-medium w-full  ${!top ? 'text-white' : 'text-black'} hover: ${!top ? 'text-gray-300' : 'text-gray-700'} py-2 justify-center`}
                               onClick={() => setMobileNavOpen(false)}>
                             Products
                         </Link>
                     </li>
                     <li>
-                        <Link href="#"
+                        <Link href="#contactSection"
                               className={`flex font-medium w-full ${!top ? 'text-white' : 'text-black'} hover: ${!top ? 'text-gray-300' : 'text-gray-700'} py-2 justify-center`}
                               onClick={() => setMobileNavOpen(false)}>
                             Contact
@@ -101,7 +101,7 @@ export default function Header() {
                     </li>
                     <li>
                         <div className="flex w-full justify-center">
-                            <Link href="#"
+                            <Link href="/about-us"
                                   className={`btn-sm  ${!top ? 'text-black' : 'text-white'} ${!top ? 'bg-white' : 'bg-black'} hover:${!top ? 'text-gray-300' : 'text-gray-700'} w-2/3 my-2`}
                                   onClick={() => setMobileNavOpen(false)}>
                                 About US

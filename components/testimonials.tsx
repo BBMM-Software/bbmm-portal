@@ -50,8 +50,7 @@ export default function Testimonials() {
                             className="text-xl text-gray-600"
                             data-aos="zoom-y-out"
                         >
-                            Arcu cursus vitae congue mauris rhoncus viverra nibh
-                            cras pulvinar mattis blandit libero cursus mattis.
+                            Discover our freelance services on leading platforms, connecting you with expert solutions wherever you need. For direct inquiries, feel free to email us or schedule a meeting.
                         </p>
                     </div>
 

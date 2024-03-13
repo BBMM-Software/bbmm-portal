@@ -33,8 +33,9 @@ export default function Hero() {
                             className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-teal-400">Software</span>
                         </h1>
                         <div className="max-w-3xl mx-auto">
-                            <p className="text-xl text-gray-600" data-aos="zoom-y-out" data-aos-delay="150">Short
-                                company description......</p>
+                            <p className="text-xl text-gray-600" data-aos="zoom-y-out" data-aos-delay="150">
+                                Crafting Your Digital Future with <b>Precision</b> and <b>Passion</b>
+                            </p>
                         </div>
                     </div>
                     <ModelView/>

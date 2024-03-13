@@ -8,6 +8,7 @@ import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "@/public/images/testimonial.jpg";
 import ContinuousTransitionIcon from "./ui/click-animation";
+import Utilities from './utils/utilities';
 
 interface Project {
 	title: string; // Project Name
@@ -53,6 +54,7 @@ function TransitionClick() {}
 
 export default function Features() {
 	const [tab, setTab] = useState<number>(1);
+	const [isMobileWidth, setIsMobileWidth] = useState<boolean>(false);
 
 	const tabs = useRef<HTMLDivElement>(null);
 
@@ -64,9 +66,15 @@ export default function Features() {
 		heightFix();
 	}, []);
 
-	const isMobile = () => {
-		return window.innerWidth < 640;
-	};
+	const updateIsMobile = () => {
+		setIsMobileWidth(Utilities.isMobileWidth);
+	}
+
+	useEffect(() => {
+		setIsMobileWidth(Utilities.isMobileWidth);
+
+		window.addEventListener("resize", updateIsMobile);
+	},[]);
 
 	return (
 		<section className="relative">
@@ -131,7 +139,7 @@ export default function Features() {
 								>
 									<Swiper
 										modules={[Navigation, Pagination]}
-										navigation={isMobile() ? false : true}
+										navigation={!isMobileWidth}
 										pagination={true}
 										color="purple-500"
 										spaceBetween={50}
