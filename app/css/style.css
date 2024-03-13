@@ -23,3 +23,8 @@
 .swiper-slide-shadow-left, .swiper-slide-shadow-right {
     opacity: 0 !important;
 }
+
+
+    .swiper-pagination .swiper-pagination-bullets{
+        bottom: 100px !important;
+    }

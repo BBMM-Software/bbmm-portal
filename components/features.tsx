@@ -7,6 +7,7 @@ import { MdTimer } from "react-icons/md";
 import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "@/public/images/testimonial.jpg";
+import ContinuousTransitionIcon from "./ui/click-animation";
 
 interface Project {
 	title: string; // Project Name
@@ -47,6 +48,8 @@ const PROJECTS: Project[] = [
 		},
 	},
 ];
+
+function TransitionClick() {}
 
 export default function Features() {
 	const [tab, setTab] = useState<number>(1);
@@ -129,14 +132,14 @@ export default function Features() {
 									<Swiper
 										modules={[Navigation, Pagination]}
 										navigation={isMobile() ? false : true}
-										pagination={isMobile() ? false : true}
+										pagination={true}
 										color="purple-500"
 										spaceBetween={50}
 										slidesPerView={1}
 										className="m-0 swiper"
 									>
 										{PROJECTS.map((project, index) => (
-											<SwiperSlide key={index} style={{ minHeight: "500px" }}>
+											<SwiperSlide key={index} className="xs:pb-8 sm:pb-0" style={{ minHeight: "500px" }}>
 												<div className="w-full grid grid-cols-12 mt-8">
 													<div className="xs:col-span-12 sm:col-span-4 sm:col-start-2 flex sm:mt-16 xs:text-center sm:text-start" data-aos="fade-right">
 														<div className="mb-8 w-full">
@@ -161,7 +164,12 @@ export default function Features() {
 															{project.gifs.map((gif, index) => (
 																<SwiperSlide key={index} className="shadow-none">
 																	<div className="flex justify-center items-center">
-																		<Image src={gif} width={400} alt="Features bg" />
+																		<span className="relative p-3">
+																			<div className="absolute top-0 right-0 -rotate-45">
+																				<ContinuousTransitionIcon />
+																			</div>
+																			<Image src={gif} width={400} alt="Features bg" />
+																		</span>
 																	</div>
 																</SwiperSlide>
 															))}
