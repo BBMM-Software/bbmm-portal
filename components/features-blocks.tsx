@@ -32,7 +32,7 @@ export default function FeaturesBlocks() {
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
               <IconCircle Icon={DiCodeBadge} />
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Web Development</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text-gray-600 text-center">Crafting modern, responsive, and user-friendly websites to elevate your online presence and engage your audience effectively.</p>
             </div>
 
             {/* 2nd item */}
@@ -43,35 +43,35 @@ export default function FeaturesBlocks() {
                 <IconCircle Icon={DiAndroid} />
               </div>
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Application Development</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text-gray-600 text-center">Designing and developing custom applications adjusted to meet your unique business needs, ensuring seamless performance across all devices.</p>
             </div>
 
             {/* 3rd item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
               <IconCircle Icon={DiDatabase} />
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Database management</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text-gray-600 text-center">Providing robust database management solutions to organize, store, and retrieve your data efficiently, ensuring integrity and security.</p>
             </div>
 
             {/* 4th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
               <IconCircle Icon={DiAws} />
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Cloud Automation</h4>
-              <p className="text-gray-600 text-center">CI & CD - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Cloud Automation(CI & CD)</h4>
+              <p className="text-gray-600 text-center">Streamlining your development process with Continuous Integration and Continuous Deployment, enhancing productivity and reliability in cloud environments.</p>
             </div>
 
             {/* 5th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
               <IconCircle Icon={GiArtificialIntelligence} />
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">AI Applications</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text-gray-600 text-center">Leveraging artificial intelligence to create smart applications that drive efficiency, improve decision-making, and innovate user experiences.</p>
             </div>
 
             {/* 6th item */}
             <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
               <IconCircle Icon={TbCube} />
               <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">3D Modelling</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="text-gray-600 text-center">Creating detailed and accurate 3D models to bring your concepts to life, ideal for simulations, visualizations, and interactive media.</p>
             </div>
 
           </div>
