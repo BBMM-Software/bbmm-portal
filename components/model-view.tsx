@@ -5,6 +5,7 @@ import React, {Suspense, useEffect, useRef, useState} from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
 import {ContactShadows, Environment, Html, OrbitControls, useGLTF} from '@react-three/drei'
 import Utilities from './utils/utilities';
+import LaptopContent from './LaptopContent/laptop-content'
 
 interface ModelProps {
     isOpen: boolean
@@ -42,7 +43,7 @@ function Model(props: ModelProps) {
                     <mesh material={materials['matte.001']} geometry={(nodes['Cube008_1'] as Mesh).geometry}/>
                     <mesh geometry={(nodes['Cube008_2'] as Mesh).geometry}>
                         <Html rotation-x={-Math.PI / 2} position={[0, 0.04, 0]} transform occlude>
-
+                            <LaptopContent />
                         </Html>
                     </mesh>
                 </group>
