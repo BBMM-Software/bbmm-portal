@@ -133,8 +133,6 @@ export default function Features() {
 										color="purple-500"
 										spaceBetween={50}
 										slidesPerView={1}
-										onSlideChange={(e) => console.log("slide change", e)}
-										onSwiper={(swiper) => console.log(swiper)}
 										className="m-0 swiper"
 									>
 										{PROJECTS.map((project, index) => (
@@ -160,8 +158,8 @@ export default function Features() {
 																}
 															}}
 														>
-															{project.gifs.map((gif) => (
-																<SwiperSlide className="shadow-none">
+															{project.gifs.map((gif, index) => (
+																<SwiperSlide key={index} className="shadow-none">
 																	<div className="flex justify-center items-center">
 																		<Image src={gif} width={400} alt="Features bg" />
 																	</div>
@@ -181,8 +179,8 @@ export default function Features() {
 																			<div className="my-4 text-sm">Client Requirements:</div>
 																			<div className="my-2">
 																				<ul className="list-disc ms-2 text-xs">
-																					{project.dev.request.map((request) => (
-																						<li>{request}</li>
+																					{project.dev.request.map((request, index) => (
+																						<li key={index}>{request}</li>
 																					))}
 																				</ul>
 																			</div>
@@ -192,8 +190,8 @@ export default function Features() {
 																					<div className="text-sm mt-4">Provided Data:</div>
 																					<div className="my-2">
 																						<ul className="list-disc ms-2 text-xs">
-																							{project.dev.provided.map((provided) => (
-																								<li>{provided}</li>
+																							{project.dev.provided.map((provided, index) => (
+																								<li key={index}>{provided}</li>
 																							))}
 																						</ul>
 																					</div>
@@ -203,15 +201,15 @@ export default function Features() {
 																			<div className="my-4 text-sm">What we delivered:</div>
 																			<div className="my-4">
 																				<ul className="list-disc ms-2 text-xs">
-																					{project.dev.delivered.map((delivered) => (
-																						<li>{delivered}</li>
+																					{project.dev.delivered.map((delivered, index) => (
+																						<li key={index}>{delivered}</li>
 																					))}
 																				</ul>
 																			</div>
 																		</div>
 																		<div className="flex flex-column justify-center w-full absolute font-semibold bottom-0 text-xs mb-2">
 																			{project.dev.techStack.map((tech, index) => (
-																				<>
+																				<div className="flex" key={index}>
 																					<span className="mx-1">{tech}</span>
 																					{project.dev.techStack.length - 1 !== index && (
 																						<svg
@@ -226,7 +224,7 @@ export default function Features() {
 																							<circle cx="1.5" cy="2" r="1.5" fill="#000" />
 																						</svg>
 																					)}
-																				</>
+																				</div>
 																			))}
 																		</div>
 																	</div>
