@@ -38,9 +38,8 @@ export default function Hero() {
                             </p>
                         </div>
                     </div>
-                    <ModelView/>
                 </div>
-
             </div>
+            <ModelView/>
         </section>)
 }

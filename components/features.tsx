@@ -83,10 +83,10 @@ export default function Features() {
 			<div className="absolute inset-0 bg-gray-100 pointer-events-none mb-16" aria-hidden="true"></div>
 			<div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-gray-200 transform -translate-y-1/2"></div>
 
-			<div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+			<div className="relative max-w-6xl mx-auto px-4 pb-16 sm:px-6">
 				<div className="pt-12 md:pt-20">
 					{/* Section header */}
-					<div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+					<div className="max-w-3xl mx-auto text-center md:pb-16">
 						<h1 className="h2 mb-4">Explore our products</h1>
 						<div className="flex flex-row justify-center">
 							<a
@@ -148,7 +148,7 @@ export default function Features() {
 										className="m-0 swiper"
 									>
 										{PROJECTS.map((project, index) => (
-											<SwiperSlide key={index} className="xs:pb-8 sm:pb-0" style={{ minHeight: "500px" }}>
+											<SwiperSlide key={index} className="xs:pb-3" style={{ minHeight: "500px" }}>
 												<div className="w-full grid grid-cols-12 mt-8">
 													<div className="xs:col-span-12 sm:col-span-4 sm:col-start-2 flex sm:mt-16 xs:text-center sm:text-start" data-aos="fade-right">
 														<div className="mb-8 w-full flex flex-col justify-center">

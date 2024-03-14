@@ -46,8 +46,3 @@
     transform-origin:0 calc(var(--radius));
 }
 
-@media only screen and (max-width: 640px) {
-    .circle {
-          margin-bottom: 35px;
-    }
-}
