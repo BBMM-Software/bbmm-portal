@@ -29,7 +29,7 @@ export default function Footer() {
                 <a href="/about-us" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">About us</a>
               </li>
               <li className="mb-2">
-                <a href="/privacy-and-policy" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Privacy Policy</a>
+                <a href="/privacy-policy" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Privacy Policy</a>
               </li>
             </ul>
           </div>

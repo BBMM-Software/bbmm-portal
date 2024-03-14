@@ -51,8 +51,6 @@ const PROJECTS: Project[] = [
 	},
 ];
 
-function TransitionClick() {}
-
 export default function Features() {
 	const [tab, setTab] = useState<number>(1);
 	const [isMobileWidth, setIsMobileWidth] = useState<boolean>(false);
