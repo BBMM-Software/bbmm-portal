@@ -3,10 +3,8 @@
 
 .circle {
     --radius: 105px;
-    --frame-size: calc(var(--radius) / 3);
     --d-outer: calc(var(--radius) * 2);
-    --d-inner: calc(var(--d-outer) - var(--frame-size));
-    --font-size: calc(var(--radius) / 10);
+    --logo-size: 150px;
     position: relative;
     width: var(--d-outer);
     height: var(--d-outer);
@@ -18,12 +16,11 @@
 
 .logo {
     position: absolute;
-    width: var(--d-inner);
-    height: var(--d-inner);
+    width: var(--logo-size);
+    height: var(--logo-size);
     background: url("/images/bbmmlogo.jpeg");
     background-size: cover;
     border-radius: 50%;
-    filter: contrast(1.5);
 }
 
 .text {
@@ -45,7 +42,6 @@
 .text p span {
     position: absolute;
     left: 50%;
-    top: -5%;
     font-size: 1.2em;
-    transform-origin:0 calc(var(--radius) + 10px);
+    transform-origin:0 calc(var(--radius));
 }

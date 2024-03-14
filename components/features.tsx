@@ -7,6 +7,7 @@ import { MdTimer } from "react-icons/md";
 import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "@/public/images/testimonial.jpg";
+import AbysGif from "@/public/projectGifs/abys.gif";
 import ContinuousTransitionIcon from "./ui/click-animation";
 import Utilities from './utils/utilities';
 
@@ -39,7 +40,7 @@ const PROJECTS: Project[] = [
 	{
 		title: "Abys Product Showcase",
 		description: "The website showcases an interactive 3D model of Abys's outdoor advertising product: a bike.",
-		gifs: [Testimonial, Testimonial],
+		gifs: [AbysGif],
 		dev: {
 			time: "1 week",
 			request: ["3D model of a bike with displays on each side", "the model should be spinning by default, and interactive", "background with  moving vertexes animation"],
@@ -150,9 +151,9 @@ export default function Features() {
 											<SwiperSlide key={index} className="xs:pb-8 sm:pb-0" style={{ minHeight: "500px" }}>
 												<div className="w-full grid grid-cols-12 mt-8">
 													<div className="xs:col-span-12 sm:col-span-4 sm:col-start-2 flex sm:mt-16 xs:text-center sm:text-start" data-aos="fade-right">
-														<div className="mb-8 w-full">
-															<h3 className="h3 mb-3">{project.title}</h3>
-															<p className="text-xl text-gray-600">{project.description}</p>
+														<div className="mb-8 w-full flex flex-col justify-center">
+															<h3 className="h3 mb-3 text-center">{project.title}</h3>
+															<p className="text-xl text-gray-600 text-center">{project.description}</p>
 														</div>
 													</div>
 													<div className="m-0 xs:col-span-12 sm:col-span-7">
@@ -168,15 +169,16 @@ export default function Features() {
 																	swiper.slideNext(500);
 																}
 															}}
+															className="h-full"
 														>
 															{project.gifs.map((gif, index) => (
 																<SwiperSlide key={index} className="shadow-none">
-																	<div className="flex justify-center items-center">
-																		<span className="relative p-3">
+																	<div className="flex justify-center items-center h-full">
+																		<span className="relative p-3 h-full flex items-center">
 																			<div className="absolute top-0 right-0 -rotate-45">
 																				<ContinuousTransitionIcon />
 																			</div>
-																			<Image src={gif} width={400} alt="Features bg" />
+																			<Image src={gif} width={400} alt="Features bg"/>
 																		</span>
 																	</div>
 																</SwiperSlide>

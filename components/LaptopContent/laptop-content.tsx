@@ -19,7 +19,7 @@ export default function LaptopConent(){
     <div className={styles.circle}>
       <div className={styles.logo}></div>
       <div className={styles.text}>
-        <p id="movingText">Professional.  Efficient.  Flexible. Transparent. </p>
+        <p id="movingText">★ Professional ★ Efficient ★ Flexible ★ Transparent </p>
       </div>
     </div>
   );

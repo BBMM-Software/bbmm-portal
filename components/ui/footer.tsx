@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
 
         {/* Top area: Blocks */}
-        <div className="sm:grid-cols-12 gap-8 py-8 md:py-12 border-t border-gray-200 flex justify-between content-center">
+        <div className="sm:grid-cols-12 p-2 gap-8 py-8 md:py-12 border-t border-gray-200 flex justify-between content-center">
 
           {/* 2nd block */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
@@ -35,9 +35,11 @@ export default function Footer() {
           </div>
 
           {/* 5th block */}
-          <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-3 flex flex-col items-center">
             <h6 className="text-gray-800 font-medium mb-2">Contact</h6>
-            <a className="text-l text-purple-600 mb-4 font-bold" href="mailto:contact@bbmmsoftware.com">contact@bbmmsoftware.com</a>
+            <div className="w-full flex h-full flex-wrap">
+              <a className="text-l text-purple-600 mb-4 font-bold break-all" href="mailto:contact@bbmmsoftware.com">contact@bbmmsoftware.com</a>
+            </div>
           </div>
 
         </div>
