@@ -8,6 +8,7 @@ import { EffectFlip, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "@/public/images/testimonial.jpg";
 import AbysGif from "@/public/projectGifs/abys.gif";
+import FriendzGif from "@/public/projectGifs/friendz.gif";
 import ContinuousTransitionIcon from "./ui/click-animation";
 import Utilities from './utils/utilities';
 
@@ -28,7 +29,7 @@ const PROJECTS: Project[] = [
 	{
 		title: "InTouch",
 		description: "The application allows its users to share their social media accounts, at all types of social events.",
-		gifs: [Testimonial, Testimonial],
+		gifs: [FriendzGif],
 		dev: {
 			time: "2 months",
 			request: ["Social media app to share accounts across all platforms"],
@@ -176,7 +177,7 @@ export default function Features() {
 																			<div className="absolute top-0 right-0 -rotate-45">
 																				<ContinuousTransitionIcon />
 																			</div>
-																			<Image src={gif} width={400} alt="Features bg"/>
+																			<Image src={gif} className="" alt="Features bg"/>
 																		</span>
 																	</div>
 																</SwiperSlide>
