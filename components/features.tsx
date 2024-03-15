@@ -155,7 +155,7 @@ export default function Features() {
 															<p className="text-xl text-gray-600 text-center">{project.description}</p>
 														</div>
 													</div>
-													<div className="m-0 xs:col-span-12 sm:col-span-6 h-96">
+													<div className="m-0 xs:col-span-12 sm:col-start-7 sm:col-span-5 h-96">
 														<Swiper
 															slidesPerView={1}
 															modules={[EffectFlip]}
