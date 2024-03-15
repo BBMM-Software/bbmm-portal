@@ -176,7 +176,7 @@ export default function Features() {
                                                             {project.gifs.map((gif, index) => (
                                                                 <SwiperSlide key={index} className="shadow-none">
                                                                     <div
-                                                                        className="flex justify-center items-center h-full">
+                                                                        className="flex justify-center items-center h-full background-soft-gray">
 																		<span
                                                                             className="relative p-3 h-full flex items-center">
 																			<div
@@ -191,7 +191,7 @@ export default function Features() {
                                                             ))}
 
                                                             <SwiperSlide>
-                                                                <div className="flex justify-center items-center h-full w-full">
+                                                                <div className="flex justify-center items-center h-full w-full background-soft-gray">
                                                                     <div
                                                                     >
                                                                         <div
