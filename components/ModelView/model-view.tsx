@@ -4,8 +4,9 @@ import {Group, Mesh} from 'three'
 import React, {Suspense, useEffect, useRef, useState} from 'react'
 import {Canvas, useFrame} from '@react-three/fiber'
 import {ContactShadows, Environment, Html, OrbitControls, useGLTF} from '@react-three/drei'
-import Utilities from './utils/utilities';
-import LaptopContent from './LaptopContent/laptop-content'
+import LaptopContent from '../LaptopContent/laptop-content'
+import Utilities from "@/components/utils/utilities";
+
 
 interface ModelProps {
     isOpen: boolean
@@ -42,8 +43,8 @@ function Model(props: ModelProps) {
                     <mesh material={materials.aluminium} geometry={(nodes['Cube008'] as Mesh).geometry}/>
                     <mesh material={materials['matte.001']} geometry={(nodes['Cube008_1'] as Mesh).geometry}/>
                     <mesh geometry={(nodes['Cube008_2'] as Mesh).geometry}>
-                        <Html rotation-x={-Math.PI / 2} position={[0, 0.04, 0]} transform occlude>
-                            <LaptopContent />
+                        <Html rotation-x={-Math.PI / 2} position={[0, 0.04, -0.09]} transform occlude>
+                            <LaptopContent/>
                         </Html>
                     </mesh>
                 </group>
@@ -102,7 +103,7 @@ export default function ModelView() {
 
     return (
         <div style={{height: '60vh', width: '100%'}}>
-            <Canvas camera={{position: [-3, 0, -16], fov: 55}}>
+            <Canvas camera={{position: [-3, 0, -16], fov: 55}} >
                 <pointLight position={[10, 10, 10]} intensity={1.5}/>
                 <Suspense fallback={null}>
                     <group rotation={[0, Math.PI, 0]} position={[0, 1, 0]}>

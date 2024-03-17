@@ -13,10 +13,10 @@ export default function Footer() {
             <h6 className="text-gray-800 font-medium mb-2">Products</h6>
             <ul className="text-sm">
               <li className="mb-2">
-                <a href="#productsSection" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Freelancing Services</a>
+                <a href="/#productsSection" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Freelancing Services</a>
               </li>
               <li className="mb-2">
-                <a href="#productsSection" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Company Compass</a>
+                <a href="/#productsSection" className="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out">Company Compass</a>
               </li>
             </ul>
           </div>
