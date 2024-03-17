@@ -9,6 +9,8 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import Testimonial from "@/public/images/companycompasslogo.jpg";
 import AbysGif from "@/public/projectGifs/abys.gif";
 import FriendzGif from "@/public/projectGifs/friendz.gif";
+import JobPostGif from "@/public/projectGifs/jobpost.gif"
+import LinkedinAutomatorPng from "@/public/projectGifs/linkedinautomator.png"
 import ContinuousTransitionIcon from "./ui/click-animation";
 import Utilities from "./utils/utilities";
 
@@ -26,30 +28,54 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
-    {
-        title: "InTouch",
-        description: "The application allows its users to share their social media accounts, at all types of social events.",
-        gifs: [FriendzGif],
-        dev: {
-            time: "2 months",
-            request: ["Social media app to share accounts across all platforms"],
-            provided: ["Figma design"],
-            delivered: ["Source code", "Modern UI, made specifically for mobile, with custom styles for iOS and Android", "Improved app stability with Kubernetes"],
-            techStack: ["Ionic-React", "Spring Boot", "PostgreSQL", "Kubernetes"],
-        },
-    },
-    {
-        title: "Abys",
-        description: "The website showcases an interactive 3D model of Abys's outdoor advertising product: a bike.",
-        gifs: [AbysGif],
-        dev: {
-            time: "1 week",
-            request: ["3D model of a bike with displays on each side", "the model should be spinning by default, and interactive", "background with  moving vertexes animation"],
-            provided: ["Rough Figma design"],
-            delivered: ["Source code, 3D model, and assistance in hosting"],
-            techStack: ["Golang", "p5.js", "Autodesk Fusion"],
-        },
-    },
+	{
+		title: "InTouch",
+		description: "The application allows its users to share their social media accounts, at all types of social events.",
+		gifs: [FriendzGif],
+		dev: {
+			time: "2 months",
+			request: ["Social media app to share accounts across all platforms"],
+			provided: ["Figma design"],
+			delivered: ["Source code", "Modern UI, made specifically for mobile, with custom styles for iOS and Android", "Improved app stability with Kubernetes"],
+			techStack: ["Ionic-React", "Spring Boot", "PostgreSQL", "Kubernetes"],
+		},
+	},
+	{
+		title: "Abys",
+		description: "The website showcases an interactive 3D model of Abys's outdoor advertising product: a bike.",
+		gifs: [AbysGif],
+		dev: {
+			time: "1 week",
+			request: ["3D model of a bike with displays on each side", "the model should be spinning by default, and interactive", "background with  moving vertexes animation"],
+			provided: ["Rough Figma design"],
+			delivered: ["Source code, 3D model, and assistance in hosting"],
+			techStack: ["Golang", "p5.js", "Autodesk Fusion"],
+		},
+	},
+	{
+		title: "Startup Finder",
+		description: "A web application that connects software companies and potential employers. Users can search and filter through the jobs, and companies can post their jobs for a charge.",
+		gifs: [JobPostGif],
+		dev: {
+			time: "3 weeks",
+			request: ["modern UI", "search and filter for the jobs", "job post preview for the companies", "integration with stripe for payment"],
+			provided: ["hand-drawn sketches of the site's UI"],
+			delivered: ["Each change pushed on the client's git server, dockerization, and deployment on the client's AWS account (frontend, backend, and database)"],
+			techStack: ["Angular 15", ".NET Core 6", "MySQL"],
+		},
+	},
+	{
+		title: "Linkedin Automator",
+		description: "A native MAC app that scrapes contacts for provided contacts from Linkedin. Users can reverse-search the scraped contacts for certain keywords.",
+		gifs: [LinkedinAutomatorPng],
+		dev: {
+			time: "3 weeks",
+			request: ["MAC native application", "plug-and-play (doesn't require the user to download any 3rd party libraries)", "the scraping process should be shown to the user: each page should be opened in Chrome", "reverse-search functionality"],
+			provided: ["Figma design"],
+			delivered: ["Source code", "MAC executable", "assistance in setup"],
+			techStack: ["Swift UI", "Automator Scripts"],
+		},
+	},
 ];
 
 export default function Features() {
