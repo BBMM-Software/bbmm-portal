@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
 
-
 .circle {
     --radius: 105px;
     --d-outer: calc(var(--radius) * 2);
@@ -9,6 +8,14 @@
     width: var(--d-outer);
     height: var(--d-outer);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test {
+    width: 330px; /* Use 100% if LaptopContent is strictly inside the container */
+    height: 220px; /* Same as above, use 100% if it's strictly inside a parent container */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,9 +52,5 @@
     font-size: 1.2em;
     transform-origin:0 calc(var(--radius));
 }
-@media only screen and (max-width: 600px) {
-    .circle {
-        margin-bottom: 35px;
-    }
-}
+
 
